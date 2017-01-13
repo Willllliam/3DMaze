@@ -1,7 +1,7 @@
 ﻿public partial class Const {
 
 	public enum ViewType {
-		Home,
+		Title,
 		StageSelect,
 		Game,
 		Result
