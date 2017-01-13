@@ -28,8 +28,9 @@ public class StageSelectButtonController : MonoBehaviour {
 	}
 
 	public void PushButton () {
-		print(stageNum);
 		GameManager.instance.currentSelectStage = stageNum;
+		ViewManager.instance.ChangeView(Const.ViewType.Game);
+		ViewManager.instance.gameView.ShowStage();
 	}
 
 }
