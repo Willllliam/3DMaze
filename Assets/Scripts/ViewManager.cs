@@ -11,7 +11,7 @@ public class ViewManager
 	private Transform
 		showPoint,
 		hidePoint,
-		homeView,
+		titleView,
 		stageSelectView,
 		gameView,
 		resultView;
@@ -23,25 +23,25 @@ public class ViewManager
 	public void LateUpdate () {
 		switch (currentView) {
 			case Const.ViewType.Title:
-				Move (homeView, showPoint);
+				Move (titleView, showPoint);
 				Move (stageSelectView, hidePoint);
 				Move (gameView, hidePoint);
 				Move (resultView, hidePoint);
 				break;
 			case Const.ViewType.StageSelect:
-				Move (homeView, hidePoint);
+				Move (titleView, hidePoint);
 				Move (stageSelectView, showPoint);
 				Move (gameView, hidePoint);
 				Move (resultView, hidePoint);
 				break;
 			case Const.ViewType.Game:
-				Move (homeView, hidePoint);
+				Move (titleView, hidePoint);
 				Move (stageSelectView, hidePoint);
 				Move (gameView, showPoint);
 				Move (resultView, hidePoint);
 				break;
 			case Const.ViewType.Result:
-				Move (homeView, hidePoint);
+				Move (titleView, hidePoint);
 				Move (stageSelectView, hidePoint);
 				Move (gameView, hidePoint);
 				Move (resultView, showPoint);
