@@ -11,10 +11,16 @@ public class ViewManager
 	private Transform
 		showPoint,
 		hidePoint,
-		titleView,
-		stageSelectView,
-		gameView,
-		resultView;
+		titleObj,
+		stageSelectObj,
+		gameObj,
+		resultObj;
+
+	public TitleViewController titleView;
+	public StageSelectViewController stageSelectView;
+	public GameViewController gameView;
+	public ResultViewController resultView;
+
 
 	public void ChangeView (Const.ViewType viewType) {
 		currentView = viewType;
@@ -23,28 +29,28 @@ public class ViewManager
 	public void LateUpdate () {
 		switch (currentView) {
 			case Const.ViewType.Title:
-				Move (titleView, showPoint);
-				Move (stageSelectView, hidePoint);
-				Move (gameView, hidePoint);
-				Move (resultView, hidePoint);
+				Move (titleObj, showPoint);
+				Move (stageSelectObj, hidePoint);
+				Move (gameObj, hidePoint);
+				Move (resultObj, hidePoint);
 				break;
 			case Const.ViewType.StageSelect:
-				Move (titleView, hidePoint);
-				Move (stageSelectView, showPoint);
-				Move (gameView, hidePoint);
-				Move (resultView, hidePoint);
+				Move (titleObj, hidePoint);
+				Move (stageSelectObj, showPoint);
+				Move (gameObj, hidePoint);
+				Move (resultObj, hidePoint);
 				break;
 			case Const.ViewType.Game:
-				Move (titleView, hidePoint);
-				Move (stageSelectView, hidePoint);
-				Move (gameView, showPoint);
-				Move (resultView, hidePoint);
+				Move (titleObj, hidePoint);
+				Move (stageSelectObj, hidePoint);
+				Move (gameObj, showPoint);
+				Move (resultObj, hidePoint);
 				break;
 			case Const.ViewType.Result:
-				Move (titleView, hidePoint);
-				Move (stageSelectView, hidePoint);
-				Move (gameView, hidePoint);
-				Move (resultView, showPoint);
+				Move (titleObj, hidePoint);
+				Move (stageSelectObj, hidePoint);
+				Move (gameObj, hidePoint);
+				Move (resultObj, showPoint);
 				break;
 		}
 	}

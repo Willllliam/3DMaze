@@ -3,13 +3,8 @@ using System.Collections;
 
 public class GameViewController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public void ShowStage () {
+		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

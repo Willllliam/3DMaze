@@ -3,13 +3,19 @@ using System.Collections;
 
 public class StageSelectViewController : MonoBehaviour {
 
-	// Use this for initialization
+	public StageSelectButtonController[] stageSelectButtons;
+
 	void Start () {
-	
+		for (int i = 0; i < stageSelectButtons.Length; i++) {
+			if (i < GameManager.instance.currentOpenNum) {
+				stageSelectButtons [i].ButtonAvailable ();
+			} else {
+				stageSelectButtons [i].ButtonUnavailable ();
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void ViewStart () {
+		
 	}
 }
