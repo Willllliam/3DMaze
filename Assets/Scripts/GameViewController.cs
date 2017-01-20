@@ -3,8 +3,13 @@ using System.Collections;
 
 public class GameViewController : MonoBehaviour {
 
+	public Transform stageRoot;
+
 	public void ShowStage () {
-		print(GameManager.instance.currentSelectStage);
+		int selected = GameManager.instance.currentSelectStage;
+		GameObject obj = (GameObject)Instantiate (Resources.Load("Stage/" + selected.ToString()));
+		obj.transform.SetParent (stageRoot);
+		obj.transform.localPosition = Vector3.zero;
 	}
 	
 }
