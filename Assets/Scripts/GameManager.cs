@@ -7,8 +7,33 @@ public class GameManager
 	public int currentSelectStage;
 	public int currentOpenNum;
 
-	public void ClearStage () {
+	const string userDataSaveKey = "UserData";
+	private UserData userData = new UserData();
+	public UserData UserData 
+	{
+		get { return userData; }
+		set { userData = value; }
+	}
+
+	public void ClearStage() 
+	{
 		
+	}
+
+	public void SaveUserData()
+	{
+		PlayerPrefs.SetString(
+			userDataSaveKey, 
+			JsonUtility.ToJson(userData));
+	}
+
+	public void LoadUserData()
+	{
+		if (PlayerPrefs.HasKey(userDataSaveKey))
+		{
+			userData = JsonUtility.FromJson<UserData>(
+				PlayerPrefs.GetString(userDataSaveKey));
+		}
 	}
 
 
