@@ -22,7 +22,7 @@ public class UserStageData {
 		set { id = value; }
 	}
 
-	public float clearTime
+	public float ClearTime
 	{
 		get { return clearTime; }
 		set { clearTime = value; }
