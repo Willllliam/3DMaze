@@ -3,8 +3,14 @@ using System.Collections;
 
 public class GoalController : MonoBehaviour {
 
+	bool isGoal = false;
+
 	private void OnTriggerEnter () {
-		print ("goal");
+		if (!isGoal) {
+			print ("goal");
+			isGoal = true;
+			ViewManager.instance.gameView.Goal();
+		}
 	}
 
 }
