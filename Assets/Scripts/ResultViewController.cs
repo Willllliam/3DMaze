@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ResultViewController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	[SerializeField]
+	private Text
+		scoreLabel;
+
+	[SerializeField]
+	private Button
+		backToTitleButton;
+
+	private void Start()
+	{
+		backToTitleButton.onClick.AddListener(() => {
+			ViewManager.instance.ChangeView(Const.ViewType.Title);
+		});
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	private void UpdateValue(float score)
+	{
+		scoreLabel.text = score.ToString("f2") + "s";
 	}
+
 }

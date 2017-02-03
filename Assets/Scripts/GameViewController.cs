@@ -8,13 +8,14 @@ public class GameViewController : MonoBehaviour {
 	float time;
 	bool isStart = false;
 
+	private GameObject currentStageObj;
 	public Transform stageRoot;
 
 	public void ShowStage () {
 		int selected = GameManager.instance.currentSelectStage;
-		GameObject obj = (GameObject)Instantiate (Resources.Load("Stage/" + selected.ToString()));
-		obj.transform.SetParent (stageRoot);
-		obj.transform.localPosition = Vector3.zero;
+		currentStageObj = (GameObject)Instantiate (Resources.Load("Stage/" + selected.ToString()));
+		currentStageObj.transform.SetParent (stageRoot);
+		currentStageObj.transform.localPosition = Vector3.zero;
 		isStart = true;
 	}
 
@@ -23,6 +24,19 @@ public class GameViewController : MonoBehaviour {
 			time += Time.deltaTime;
 			timeLabel.text = time.ToString ("F2") + "s";
 		}
+	}
+
+	public void Goal()
+	{
+		isStart = false;
+		Invoke("ToResult", 3.0f);
+	}
+
+	private void ToResult()
+	{
+		ViewManager.instance.ChangeView(Const.ViewType.Result);
+		ViewManager.instance.resultView.UpdateValue(time);
+		Destroy(currentStageObj, 1.0f);
 	}
 	
 }
