@@ -19,7 +19,7 @@ public class ResultViewController : MonoBehaviour {
 		});
 	}
 
-	private void UpdateValue(float score)
+	public void UpdateValue(float score)
 	{
 		scoreLabel.text = score.ToString("f2") + "s";
 	}
