@@ -5,27 +5,31 @@ using System.Collections.Generic;
 [SerializableAttribute]
 public class UserStageData {
 
-	[SerializeField] private string name;
 	[SerializeField] private int id;
 	[SerializeField] private float clearTime;
 	[SerializeField] private Const.StageState stageState;
 
-	public string Name
+	public int Id { get{ return id; } }
+	public float ClearTime { get{ return clearTime; } }
+	public Const.StageState StageState { get{ return stageState; } }
+
+	public UserStageData (int identifier, bool opened = false) 
 	{
-		get { return name; }
-		set { name = value; }
+		id = identifier;
+		clearTime = 0f;
+		stageState = opened ? Const.StageState.Opened : Const.StageState.Locked;
 	}
 
-	public int Id
+	public void SetScore (float time)
 	{
-		get { return id; }
-		set { id = value; }
+		stageState = Const.StageState.Cleared;
+		clearTime = time;
 	}
 
-	public float ClearTime
+	public void Open ()
 	{
-		get { return clearTime; }
-		set { clearTime = value; }
+		if (stageState == Const.StageState.Cleared) 
+			stageState = Const.StageState.Opened;
 	}
 
 }

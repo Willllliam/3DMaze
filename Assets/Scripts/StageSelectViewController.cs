@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StageSelectViewController : MonoBehaviour {
 
@@ -16,6 +17,10 @@ public class StageSelectViewController : MonoBehaviour {
 	}
 
 	public void ViewStart () {
-		
+		var userData = GameManager.instance.UserData;
+		for (int i=1; i<10; i++) 
+		{
+			stageSelectButtons[i-1].SetStageData(userData.Stage(i));
+		}
 	}
 }

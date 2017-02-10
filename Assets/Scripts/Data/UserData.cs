@@ -6,19 +6,32 @@ using System.Collections.Generic;
 public class UserData {
 
 	[SerializeField] private string name;
-	[SerializeField] private List<UserStageData> userStageData 
-									= new List<UserStageData>();
+	[SerializeField] private List<UserStageData> userStagesData;
 
 	public string Name
 	{
 		get { return name; }
-		set { name = value; }
 	}
 
-	public List<UserStageData> Stage
+	public List<UserStageData> Stages
 	{
-		get { return userStageData; }
-		set { userStageData = value; }
+		get { return userStagesData; }
+	}
+
+	public void CreateNewData ()
+	{
+		userStagesData = new List<UserStageData>();
+		for (int i=1; i<10; i++) 
+		{
+			bool opened = (i == 1) ? true : false;
+			var stageData = new UserStageData(i, opened);
+			userStagesData.Add(stageData);
+		}
+	}
+
+	public UserStageData Stage(int id)
+	{
+		return userStagesData.Find(s => s.Id == id);
 	}
 
 }

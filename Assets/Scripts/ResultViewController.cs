@@ -19,9 +19,10 @@ public class ResultViewController : MonoBehaviour {
 		});
 	}
 
-	public void UpdateValue(float score)
+	public void UpdateValue(int id, float score)
 	{
 		scoreLabel.text = score.ToString("f2") + "s";
+		GameManager.instance.ClearStage(id, score);
 	}
 
 }

@@ -11,8 +11,11 @@ public class GameViewController : MonoBehaviour {
 	private GameObject currentStageObj;
 	public Transform stageRoot;
 
+	int currentStageId;
+
 	public void ShowStage () {
 		int selected = GameManager.instance.currentSelectStage;
+		currentStageId = selected;
 		currentStageObj = (GameObject)Instantiate (Resources.Load("Stage/" + selected.ToString()));
 		currentStageObj.transform.SetParent (stageRoot);
 		currentStageObj.transform.localPosition = Vector3.zero;
@@ -35,7 +38,7 @@ public class GameViewController : MonoBehaviour {
 	private void ToResult()
 	{
 		ViewManager.instance.ChangeView(Const.ViewType.Result);
-		ViewManager.instance.resultView.UpdateValue(time);
+		ViewManager.instance.resultView.UpdateValue(currentStageId, time);
 		Destroy(currentStageObj, 1.0f);
 	}
 	
