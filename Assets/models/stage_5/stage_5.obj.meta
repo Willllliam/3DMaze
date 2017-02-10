@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e72beee79c56a402b8afd1eea767d7ff
-timeCreated: 1485433288
+guid: 8f63d01739ecc48e1a0d40a4b59ac668
+timeCreated: 1475231647
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -12,6 +12,7 @@ ModelImporter:
     2300000: default
     3300000: default
     4300000: default
+    6400000: default
   materials:
     importMaterials: 1
     materialName: 0
@@ -19,7 +20,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -38,7 +39,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
