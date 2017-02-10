@@ -23,12 +23,12 @@ public class UserStageData {
 	public void SetScore (float time)
 	{
 		stageState = Const.StageState.Cleared;
-		clearTime = time;
+		clearTime = (time < clearTime) ? time : clearTime;
 	}
 
 	public void Open ()
 	{
-		if (stageState == Const.StageState.Cleared) 
+		if (stageState != Const.StageState.Cleared) 
 			stageState = Const.StageState.Opened;
 	}
 
