@@ -56,7 +56,7 @@ public class ViewManager
 	}
 
 	private float speed = 6f;
-	private Vector3 maxVelocity = new Vector3 (0f, 0.01f, 0f);
+	private Vector3 maxVelocity = new Vector3 (0f, 3f, 0f);
 	private void Move (Transform obj, Transform target) {
 		if (obj != null) {
 			Vector3 diff = target.position - obj.position;
